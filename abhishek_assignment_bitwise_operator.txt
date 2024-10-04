@@ -1,0 +1,145 @@
+1)setbit 
+#include <stdio.h>
+int set_bit (int num,int pos)
+{
+    return (num | (1<<pos));
+}
+int main() {
+    int a=0b10101010;
+    printf("%d",set_bit(a,4));
+    
+}
+
+2)clearbit
+#include <stdio.h>
+int clear_bit (int num,int pos)
+{
+    return (num & ~(1<<pos));
+}
+int main() {
+    int a=0b10101010;
+    printf("%d",clear_bit(a,3));
+    
+}
+
+3)togglebit
+#include <stdio.h>
+int toggle_bit (int num,int pos)
+{
+    return (num ^ (1<<pos));
+}
+int main() {
+    int a=0b10101010;
+    printf("%d",toggle_bit(a,2));
+    
+}
+
+4)Write a function to set all 4 bits  from given  position.
+#include <stdio.h>
+int mask=0b1111;
+int set_bit (int num,int pos)
+{
+    return (num | (mask<<pos));
+}
+int main() {
+    int a=0b0001010;
+    
+    printf("%d",set_bit(a,4));
+    
+}
+
+5)Write a function to clear all 4 bits  from given  position.
+#include <stdio.h>
+int mask=0b1111;
+int clear_bit (int num,int pos)
+{
+    return (num & ~(mask<<pos));
+}
+int main() {
+    int a=0b0001010;
+    
+    printf("%d",clear_bit(a,4));
+    
+}
+
+6)Write a program to reverse all bits using bitwise operator.
+#include <stdio.h>
+unsigned int reverseBits(unsigned int n) {
+    unsigned int reversed_num = 0;
+    int bit_size = sizeof(n) * 8;  
+    for (int i = 0; i < bit_size; i++) {
+        reversed_num <<= 1;
+        reversed_num |= (n & 1);
+        n >>= 1;
+    }
+    return reversed_num;
+}
+int main() {
+    unsigned int n = 0b00000010100101000001111010011100;  
+    printf("Original: %u\n", n);
+    unsigned int reversed_bits = reverseBits(n);
+    printf("Reversed: %u\n", reversed_bits);
+    return 0;
+}
+
+7)WAP to set all right bits from a given position.
+#include <stdio.h>
+unsigned int set_bit(int mask,int x)
+{
+    return (x | mask);
+}
+int main()
+{
+    unsigned int x=0b101010101;
+    int pos, mask, p=1,num;
+    printf("enter pos and mask\n");
+    scanf("%d",&pos);
+    while(pos)
+    {
+       num=num+p;
+       p=p*2;
+       pos--;
+    }
+    printf("%d",set_bit(mask,x));
+    return 0;
+}
+
+8)WAP to set all left bits from a given position.
+#include <stdio.h>
+unsigned char clear_bit(int num,int x)
+{
+    return (x | ~num);
+}
+int main()
+{
+    unsigned char x=0b101010101;
+    int pos, p=1,num;
+    printf("enter pos and mask\n");
+    scanf("%d",&pos);
+    while(pos)
+    {
+      num=num+p;
+      p=p*2;
+      pos--;
+    }
+    printf("%d",clear_bit(num,x));
+    return 0;
+}
+
+9) Write a program to swap odd and even bits of given variable.
+#include <stdio.h>
+unsigned int swapOddEvenBits(unsigned int n) {
+    unsigned int even_mask = 0xAAAAAAAA;  
+    unsigned int odd_mask  = 0x55555555;  
+    unsigned int even_bits = (n & even_mask) >> 1;
+    unsigned int odd_bits  = (n & odd_mask) << 1;
+    return (even_bits | odd_bits);
+}
+int main() {
+    unsigned int n = 23;  
+    printf("Original number: %u\n", n);
+    unsigned int result = swapOddEvenBits(n);
+    printf("After swapping odd and even bits: %u\n", result);
+    return 0;
+}
+
