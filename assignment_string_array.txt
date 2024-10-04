@@ -252,7 +252,7 @@ int main() {
 }
 
 12)Write a program to perform multiplication of 2 dimensional array.
-
+//Need to complete it.
 13)Write a program to count number of vowels in given string.
 #include <stdio.h>
 #include <string.h>
