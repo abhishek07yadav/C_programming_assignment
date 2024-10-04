@@ -1,0 +1,2 @@
+# C_programming_assignment
+programs on bitwise_string_pointers_array
